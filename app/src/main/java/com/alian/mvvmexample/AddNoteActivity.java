@@ -12,13 +12,12 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class AddNoteActivity extends AppCompatActivity {
-    public static final String EXTRA_TITLE =
-            "com.alian.mvvmexample.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION =
-            "com.alian.mvvmexample.EXTRA_DESCRIPTION";
-    public static final String EXTRA_PRIORITY =
-            "com.alian.mvvmexample.EXTRA_PRIORITY";
+    public static final String EXTRA_TITLE = "com.alian.mvvmexample.EXTRA_TITLE";
+    public static final String EXTRA_DESCRIPTION = "com.alian.mvvmexample.EXTRA_DESCRIPTION";
+    public static final String EXTRA_PRIORITY = "com.alian.mvvmexample.EXTRA_PRIORITY";
     private EditText etTitle, etDescription;
     private NumberPicker numberPickerPriority;
 
@@ -31,7 +30,7 @@ public class AddNoteActivity extends AppCompatActivity {
         numberPickerPriority.setMinValue(1);
         numberPickerPriority.setMaxValue(10);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add Note");
     }
 
@@ -65,7 +64,6 @@ public class AddNoteActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.add_note_menu, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

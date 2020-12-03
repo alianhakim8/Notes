@@ -13,8 +13,8 @@ import com.alian.mvvmexample.model.Note;
 import java.util.List;
 
 public class NoteRepository {
-    private NoteDao noteDao;
-    private LiveData<List<Note>> allNotes;
+    private final NoteDao noteDao;
+    private final LiveData<List<Note>> allNotes;
 
     public NoteRepository(Application application) {
         NoteDatabase database = NoteDatabase.getInstance(application);
@@ -44,7 +44,7 @@ public class NoteRepository {
 
     private static class InsertNoteAsyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         public InsertNoteAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -59,7 +59,7 @@ public class NoteRepository {
 
     private static class UpdateNoteASyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         public UpdateNoteASyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -74,7 +74,7 @@ public class NoteRepository {
 
     private static class DeleteNotesAsyncTask extends AsyncTask<Note, Void, Void> {
 
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         public DeleteNotesAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
@@ -88,7 +88,7 @@ public class NoteRepository {
     }
 
     private static class DeleteAllNotesAsyncTask extends AsyncTask<Void, Void, Void> {
-        private NoteDao noteDao;
+        private final NoteDao noteDao;
 
         public DeleteAllNotesAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;

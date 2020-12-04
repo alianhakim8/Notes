@@ -1,4 +1,4 @@
-package com.alian.mvvmexample;
+package com.alian.mytasknotes;
 
 import android.content.Context;
 

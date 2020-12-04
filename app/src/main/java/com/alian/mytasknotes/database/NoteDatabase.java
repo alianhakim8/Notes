@@ -1,5 +1,8 @@
-package com.alian.mvvmexample.database;
+/*
+http://Alianhakim8.github.io
+*/
 
+package com.alian.mytasknotes.database;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -10,8 +13,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.alian.mvvmexample.dao.NoteDao;
-import com.alian.mvvmexample.model.Note;
+import com.alian.mytasknotes.dao.NoteDao;
+import com.alian.mytasknotes.model.Note;
 
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {

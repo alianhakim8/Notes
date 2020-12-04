@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVVM Example</string>
+    <string name="app_name">My Task Notes</string>
     <string name="title_activity_update_note">UpdateNoteActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,4 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="priority">Prioritas</string>
+    <string name="delete_all_notes">Hapus Semua Tugas</string>
+    <string name="save">Simpan</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.alian.mvvmexample.viewmodel;
+package com.alian.mytasknotes.viewmodel;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.alian.mvvmexample.model.Note;
-import com.alian.mvvmexample.repository.NoteRepository;
+import com.alian.mytasknotes.model.Note;
+import com.alian.mytasknotes.repository.NoteRepository;
 
 import java.util.List;
 

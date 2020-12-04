@@ -5,6 +5,6 @@
         android:id="@+id/save_note"
         android:icon="@drawable/ic_save"
         android:iconTint="@color/white"
-        android:title="Save"
+        android:title="@string/save"
         app:showAsAction="ifRoom" />
 </menu>

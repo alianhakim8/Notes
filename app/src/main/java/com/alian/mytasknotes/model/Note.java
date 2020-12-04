@@ -1,4 +1,8 @@
-package com.alian.mvvmexample.model;
+/*
+http://Alianhakim8.github.io
+*/
+
+package com.alian.mytasknotes.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

@@ -1,4 +1,8 @@
-package com.alian.mvvmexample.dao;
+/*
+http://Alianhakim8.github.io
+*/
+
+package com.alian.mytasknotes.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,7 +11,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.alian.mvvmexample.model.Note;
+import com.alian.mytasknotes.model.Note;
 
 import java.util.List;
 

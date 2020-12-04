@@ -1,14 +1,17 @@
-package com.alian.mvvmexample.repository;
+/*
+http://Alianhakim8.github.io
+*/
+
+package com.alian.mytasknotes.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Update;
 
-import com.alian.mvvmexample.dao.NoteDao;
-import com.alian.mvvmexample.database.NoteDatabase;
-import com.alian.mvvmexample.model.Note;
+import com.alian.mytasknotes.dao.NoteDao;
+import com.alian.mytasknotes.database.NoteDatabase;
+import com.alian.mytasknotes.model.Note;
 
 import java.util.List;
 

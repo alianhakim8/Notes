@@ -1,4 +1,8 @@
-package com.alian.mvvmexample;
+/*
+http://Alianhakim8.github.io
+*/
+
+package com.alian.mytasknotes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,18 +12,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
 public class AddEditNoteActivity extends AppCompatActivity {
-    public static final String EXTRA_ID = "com.alian.mvvmexample.EXTRA_ID";
-    public static final String EXTRA_TITLE = "com.alian.mvvmexample.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "com.alian.mvvmexample.EXTRA_DESCRIPTION";
-    public static final String EXTRA_PRIORITY = "com.alian.mvvmexample.EXTRA_PRIORITY";
-    private EditText etTitle, etDescription;
+    public static final String EXTRA_ID = "com.alian.mytasknotes.EXTRA_ID";
+    public static final String EXTRA_TITLE = "com.alian.mytasknotes.EXTRA_TITLE";
+    public static final String EXTRA_DESCRIPTION = "com.alian.mytasknotes.EXTRA_DESCRIPTION";
+    public static final String EXTRA_PRIORITY = "com.alian.mytasknotes.EXTRA_PRIORITY";
+    private TextInputLayout etTitle, etDescription;
     private NumberPicker numberPickerPriority;
 
     @Override
@@ -36,12 +41,12 @@ public class AddEditNoteActivity extends AppCompatActivity {
         // change title bar
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("Edit Note");
-            etTitle.setText(intent.getStringExtra(EXTRA_TITLE));
-            etDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+            setTitle("Edit Tugas");
+            etTitle.getEditText().setText(intent.getStringExtra(EXTRA_TITLE));
+            etDescription.getEditText().setText(intent.getStringExtra(EXTRA_DESCRIPTION));
             numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY, 1));
         } else {
-            setTitle("Add Note");
+            setTitle("Tambah Tugas");
         }
     }
 
@@ -52,12 +57,12 @@ public class AddEditNoteActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
-        String title = etTitle.getText().toString();
-        String description = etDescription.getText().toString();
+        String title = Objects.requireNonNull(etTitle.getEditText()).getText().toString();
+        String description = etDescription.getEditText().getText().toString();
         int priority = numberPickerPriority.getValue();
 
         if (title.trim().isEmpty() || description.trim().isEmpty()) {
-            Toast.makeText(this, "Title and Description Can't Be Empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mata kuliah dan deskripsi tidak boleh kosong", Toast.LENGTH_SHORT).show();
             return;
         }
 

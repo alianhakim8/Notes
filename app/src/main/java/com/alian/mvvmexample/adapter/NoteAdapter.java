@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alian.mvvmexample.R;
+import com.alian.*;
 import com.alian.mvvmexample.model.Note;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
     private List<Note> noteList = new ArrayList<>();
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -41,6 +43,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public void setNotes(List<Note> notes) {
         this.noteList = notes;
         notifyDataSetChanged();
+
+        // add animation
+
     }
 
     public Note getNoteAt(int position) {
@@ -56,7 +61,26 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvPriority = itemView.findViewById(R.id.tvPriority);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(noteList.get(position));
+                    }
+                }
+            });
         }
+    }
+
+    // item click event
+    public interface OnItemClickListener {
+        void onItemClick(Note note);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 }

@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AddEditNoteActivity extends AppCompatActivity {
+    public static final String EXTRA_ID = "com.alian.mvvmexample.EXTRA_ID";
     public static final String EXTRA_TITLE = "com.alian.mvvmexample.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "com.alian.mvvmexample.EXTRA_DESCRIPTION";
     public static final String EXTRA_PRIORITY = "com.alian.mvvmexample.EXTRA_PRIORITY";
@@ -31,7 +32,17 @@ public class AddNoteActivity extends AppCompatActivity {
         numberPickerPriority.setMaxValue(10);
 
         Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Note");
+
+        // change title bar
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)) {
+            setTitle("Edit Note");
+            etTitle.setText(intent.getStringExtra(EXTRA_TITLE));
+            etDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY, 1));
+        } else {
+            setTitle("Add Note");
+        }
     }
 
     private void ui() {
@@ -54,6 +65,13 @@ public class AddNoteActivity extends AppCompatActivity {
         data.putExtra(EXTRA_TITLE, title);
         data.putExtra(EXTRA_DESCRIPTION, description);
         data.putExtra(EXTRA_PRIORITY, priority);
+
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1) {
+            data.putExtra(EXTRA_ID, id);
+        }
+
+
         setResult(RESULT_OK, data);
         finish();
     }
